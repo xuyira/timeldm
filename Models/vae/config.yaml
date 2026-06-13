@@ -1,0 +1,37 @@
+train:
+    seed: 2
+    batch_size: 16
+    n_epochs: 5000
+    val_interval: 100
+    num_workers: 25
+    drop_last: false
+    base_path: 'data/sleep-edfx'
+    output_dir: '/project/outputs'
+    run_dir: 'aekl_eeg'
+    experiment: 'AEKL'
+models:
+  optimizer_g_lr: 0.005
+  optimizer_d_lr: 0.0005
+  adv_weight: 0.01
+  kl_weight: 1E-9
+  disc_lr: 5e-4
+  lossways: A2
+
+autoencoderkl:
+  params:
+    seq_len: 64
+    feat_dim: 5
+    latent_dim: 64
+    hidden_layer_sizes: [64,128]
+
+    z_channels: 8
+    embed_dim: 8
+    in_channels: 5
+    n_channels: 5
+    out_channels: 5
+    num_res_blocks: 2
+    ch_mult: [1, 2]
+    resolution: [8, 8]
+    attn_resolutions: [8, 8]
+    
+
